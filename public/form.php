@@ -17,27 +17,26 @@
 	<?php
         print_r($_GET);
         echo PHP_EOL;
+        echo ".................POST\n";
+        echo PHP_EOL;
         print_r($_POST);
     ?>
 
+            <form method="POST" >
+                <p>
+                    <label for="username">Username</label>
+                    <input id="username" name="user" type="text" placeholder="username">
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input id="password" name="pass" type="password" placeholder="password">
+                </p>
+                <p>
+                    <!-- <input type="submit" value="process"> -->
 
-
-
-
-
-<form method="POST" >
-    <p>
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text">
-    </p>
-    <p>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password">
-    </p>
-    <p>
-        <input type="submit">
-    </p>
-</form>
+                    <button type="submit">Login</button>
+                </p>
+            </form>
 
 
 
