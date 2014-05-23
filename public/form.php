@@ -19,7 +19,7 @@
         echo PHP_EOL;
         echo ".................POST\n";
         echo PHP_EOL;
-        var_dump($_POST);
+        print_r($_POST);
     ?>
 
 <!--             <form method="POST" >
@@ -64,12 +64,10 @@
                     <label for="save">Save to sent folder
                         <input type="checkbox" name="save" value="yes"></label>
                 </p>
-
-
             </form>
+<hr>
 
-
-            <form> 
+            <form method="GET">  
                 <p>
                     <h2>Multiple Choice Test</h2>
                     who will win the NBA Championship?
@@ -89,23 +87,50 @@
                         <input type="radio" id="q1d" name="q1d" value="Really?" disabled>
                         Indiana
                     </label>
-
                 </p>
-
-
 
                 <p>
                     <button type="submit">Submit</button>
                 </p>
+            </form>
+
+ <hr>               
+            <form method="GET"> 
+                <p>
+                <h2>Select Testing</h2>
+                <label for="traveled">Have you traveled outside US?</label>
+                <select id="traveled" name="traveled">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                </p>
+                
+                <p>
+                    <button type="submit">Submit</button>
+                </p>
+
+            </form>
+
+<hr>
+
+<form method="GET">  
+                <p>
+                    <h2>Multiple Choice Test</h2>
+                    who will win the NBA Championship?
+                    <select id="team" name="team[]" multiple>
+                        <option value="spurs">Spurs</option>
+                        <option value="thunder">thunder</option>
+                        <option value="heat">heat</option>
+                    </select>
+                </p>
+
+                <p>
+                    <button type="submit">Submit</button>
+                </p>
+            </form>
 
 
-
-                </form
-
-
-
-
-
+<br>
 
 <a href="#top">Go to the top of the page</a>
 
