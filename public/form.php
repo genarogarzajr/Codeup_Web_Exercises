@@ -15,11 +15,11 @@
 
 
 	<?php
-        print_r($_GET);
+        var_dump($_GET);
         echo PHP_EOL;
         echo ".................POST\n";
         echo PHP_EOL;
-        print_r($_POST);
+        var_dump($_POST);
     ?>
 
 <!--             <form method="POST" >
@@ -39,7 +39,7 @@
 
 <hr>
 
-            <form method="POST">
+            <form method="GET">
                 <p>
                     <label for="to">To:</label>
                     <input id="to" name="to" type="email" placeholder="to">
@@ -57,14 +57,50 @@
 
 
                 <p>
+                    <button type="submit"><img src="/img/email.gif" alt="send email"/></button>
+                </p>
+
+                <p>
+                    <label for="save">Save to sent folder
+                        <input type="checkbox" name="save" value="yes"></label>
+                </p>
+
+
+            </form>
+
+
+            <form> 
+                <p>
+                    <h2>Multiple Choice Test</h2>
+                    who will win the NBA Championship?
+                    <label for="San Antonio">
+                        <input type="radio" id="q1a" name="q1a" value="San Antonio" checked>
+                        San Antonio
+                    </label>
+                    <label for="OKC">
+                        <input type="radio" id="q1b" name="q1b" value="Really?" disabled>
+                        OKC
+                    </label>
+                    <label for="Miami">
+                        <input type="radio" id="q1c" name="q1c" value="Really?" disabled>
+                        Miami
+                    </label>
+                    <label for="Indiana">
+                        <input type="radio" id="q1d" name="q1d" value="Really?" disabled>
+                        Indiana
+                    </label>
+
+                </p>
+
+
+
+                <p>
                     <button type="submit">Submit</button>
                 </p>
 
 
 
-
-
-            </form>
+                </form
 
 
 
