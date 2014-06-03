@@ -1,17 +1,26 @@
 <?php 
 
 
-$address_book = [
-    ['The White House', '1600 Pennsylvania Avenue NW', 'Washington', 'DC', '20500'],
-    ['Marvel Comics', 'P.O. Box 1527', 'Long Island City', 'NY', '11101'],
-    ['LucasArts', 'P.O. Box 29901', 'San Francisco', 'CA', '94129-0901']
-];
+// $address_book = [
+//     ['The White House', '1600 Pennsylvania Avenue NW', 'Washington', 'DC', '20500'],
+//     ['Marvel Comics', 'P.O. Box 1527', 'Long Island City', 'NY', '11101'],
+//     ['LucasArts', 'P.O. Box 29901', 'San Francisco', 'CA', '94129-0901']
+// ];
 
 
 
 $filename = "data/adr_bk.csv";
-
-
+$handle = fopen($filename, 'r');
+$add_book = [];
+while (!feof($handle)) 
+{
+	$row = fgetcsv($handle);
+	if (is_array($row)) 
+	{
+		$add_book[] = $row;
+	}
+}
+fclose($handle);
 
 
 
@@ -46,9 +55,9 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
     $new_address['state'] = $_POST['state'];
     $new_address['zip'] = $_POST['zip'];
     $new_address['phone'] = $_POST['phone'];
-    $address_book[] = $new_address;
+    $add_book[] = $new_address;
 
-	write_csv($address_book, $filename);
+	write_csv($add_book, $filename);
     
 } else {
 
@@ -80,7 +89,7 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
 	<th>Zip</th>
 	<th>Phone</th>
 </tr>	
-<? foreach ($address_book as $fields) : ?>
+<? foreach ($add_book as $fields) : ?>
 <tr>
 	<? foreach ($fields as $value) : ?>
 		<td><?= $value; ?></td>
