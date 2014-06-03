@@ -46,6 +46,24 @@ function write_csv($x_bigArray, $x_filename)
 
 //>>>>>>>>CODE STARTS HERE<<<<<<<<<<<<<<<<<<<<
 $new_address = [];
+var_dump($_GET);
+
+
+
+
+//checks if removing item from hyperlink via GET
+if (isset($_GET['index']))
+{
+    //removes item from hyperlink
+    unset($add_book[$_GET['index']]);
+    write_csv($add_book, $filename);
+}
+
+
+
+
+
+
 // Error check
 if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']) && !empty($_POST['state']) && !empty($_POST['zip'])) 
 {
@@ -89,11 +107,13 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
 	<th>Zip</th>
 	<th>Phone</th>
 </tr>	
-<? foreach ($add_book as $fields) : ?>
+<? foreach ($add_book as $key => $fields) : ?>
 <tr>
 	<? foreach ($fields as $value) : ?>
-		<td><?= $value; ?></td>
+		<td><?= htmlspecialchars(strip_tags($value)); ?></td>
+
 	<? endforeach; ?>
+<td><a href = 'address_book2.php?action=remove&amp;index=<?=$key?>'>remove</a></td>
 </tr>
 <? endforeach; ?>
 </table>
