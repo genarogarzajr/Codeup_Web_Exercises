@@ -1,10 +1,9 @@
 <?php 
 
 
-
-
-
 $filename = "data/adr_bk.csv";
+
+//reads file on open
 $handle = fopen($filename, 'r');
 $add_book = [];
 while (!feof($handle)) 
@@ -16,8 +15,6 @@ while (!feof($handle))
 	}
 }
 fclose($handle);
-
-
 
 
 //---------------------------------------------
@@ -41,9 +38,6 @@ function write_csv($x_bigArray, $x_filename)
 
 //>>>>>>>>CODE STARTS HERE<<<<<<<<<<<<<<<<<<<<
 $new_address = [];
-var_dump($_GET);
-
-
 
 
 //checks if removing item from hyperlink via GET
@@ -55,13 +49,9 @@ if (isset($_GET['index']))
 }
 
 
-
-
-
-
 // Error check
 if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']) && !empty($_POST['state']) && !empty($_POST['zip'])) 
-{
+{	//add new entry to existing array
     $new_address['name'] = $_POST['name'];
     $new_address['address'] = $_POST['address'];
     $new_address['city'] = $_POST['city'];
@@ -72,14 +62,17 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
 
 	write_csv($add_book, $filename);
     
-} else {
-
-    foreach ($_POST as $key => $value) {
-        if (empty($value)) {
-            echo "<h1>" . ucfirst($key) .  " is empty.</h1>";
-        }
-    }
-}
+} else 
+	{
+		//displays error for each missing item
+	    foreach ($_POST as $key => $value) 
+	    {
+	        if (empty($value)) 
+	        {
+	            echo "<h1>" . ucfirst($key) .  " is empty.</h1>";
+	        }
+	    }
+	}
 
 
 ?>
