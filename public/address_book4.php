@@ -3,11 +3,20 @@
 $addressBook = [];
 $errorMessage = '';
 
-include("classes/address_data_store.php");
+require_once("classes/address_data_store.php");
 
 $ads = new AddressDataStore("data/adr_bk.csv");
 
 $addressBook = $ads->readAddressBook();
+
+if (isset($_GET['action']) && $_GET['action'] == 'remove')
+ 	{
+	
+	unset($addressBook[$_GET['index']]);
+	$addressBook = array_values($addressBook);
+	$ads->writeAddressBook($addressBook);
+	}
+
 
 if (!empty($_POST))
 {
@@ -105,6 +114,7 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
 							<td><?=htmlspecialchars(strip_tags($column));?></td>
 
 						<? endforeach; ?>
+						<td><a href = 'address_book4.php?action=remove&amp;index=<?=$index?>'>remove</a></td>
 					</tr>
 
 				<? endforeach; ?>
