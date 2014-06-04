@@ -1,40 +1,48 @@
 <?php 
 
+class AddressDataStore {
 
-$filename = "data/adr_bk.csv";
+    public $filename = "data/adr_bk.csv";
 
-//reads file on open
-$handle = fopen($filename, 'r');
-$add_book = [];
-while (!feof($handle)) 
-{
-	$row = fgetcsv($handle);
-	if (is_array($row)) 
-	{
-		$add_book[] = $row;
-	}
-}
-fclose($handle);
+    function read_address_book()
+    {
+        // Code to read file $this->filename
+    	//reads file on open
+		$handle = fopen($this->filename, 'r');
+		$add_book = [];
 
+		while (!feof($handle)) 
+		{
+			$row = fgetcsv($handle);
+			if (is_array($row)) 
+				{
+					$add_book[] = $row;
+				}
+		}
+		fclose($handle);
+		return $add_book;
+    }
 
-//---------------------------------------------
-function write_csv($x_bigArray, $x_filename)
-{
-	//if(is_writable($x_filename))
-		//{
-			$x_handle = fopen($x_filename, "w");
-			foreach ($x_bigArray as $x_fields) 
+    function write_address_book($addresses_array) 
+    {
+        // Code to write $addresses_array to file $this->filename
+    	$handle = fopen($this->filename, "w");
+			foreach ($addresses_array as $fields) 
 			{
-				fputcsv($x_handle, $x_fields);
+				fputcsv($handle, $fields);
 			}
-			fclose($x_handle);
-		//}	
+			fclose($handle);
+    }
+
 }
+
+
+//-------------------------------------------
+$startup = new AddressDataStore();
+$add_book = $startup->read_address_book();
+
+
 //---------------------------------------------
-
-
-
-
 
 //>>>>>>>>CODE STARTS HERE<<<<<<<<<<<<<<<<<<<<
 $new_address = [];
@@ -60,7 +68,7 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
     $new_address['phone'] = $_POST['phone'];
     $add_book[] = $new_address;
 
-	write_csv($add_book, $filename);
+	$startup->write_address_book($add_book);
     
 } else 
 	{
