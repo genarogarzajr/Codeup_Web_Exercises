@@ -1,23 +1,11 @@
-/* 
-this content is stored in a file named "site.css" 
-in a directory named "css" in the web root 
-*/
-
-.fancy-header {
-    color: black;
-    text-decoration: italic;
+h1 {
+	text-decoration: underline;
+	color: #FFFFFF;
 }
-p 	{color: blue;
-	background: white;
-	}
 
-body {
-background: yellow;
+body { background-color: #002E4D;
+		color: #8C8B8A; }
 
-	}
-
-table{
-	color: green;
-
-
+table, th, td {
+border: 1px solid black;
 }

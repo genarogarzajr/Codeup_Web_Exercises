@@ -90,6 +90,7 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
 		<title>Address Book</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/site.css">
 	</head>
 	<body>
 		<h1>Address Book</h1>
@@ -97,7 +98,7 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
 			<p><?=$errorMessage;?></p>
 		<? endif; ?>
 		<p>
-			<table border = 1>
+			<table>
 				<tr>
 					<th>Name</th>
 					<th>Address</th>
@@ -108,14 +109,14 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
 				</tr>
 				<? foreach ($addressBook as $index => $row) : ?>
 
-					<tr>
+				<tr>
 						<? foreach ($row as $column) : ?>
 
-							<td><?=htmlspecialchars(strip_tags($column));?></td>
+						<td><?=htmlspecialchars(strip_tags($column));?></td>
 
 						<? endforeach; ?>
 						<td><a href = 'address_book4.php?action=remove&amp;index=<?=$index?>'>remove</a></td>
-					</tr>
+				</tr>
 
 				<? endforeach; ?>
 			</table>
