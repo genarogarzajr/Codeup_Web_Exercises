@@ -1,0 +1,63 @@
+.all_boxes{
+width: 50px;
+height: 50px;
+color: FFF;
+/*margin: 10px;*/ 
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+padding-bottom: 10px;             
+border: 1px solid black
+}
+
+.arrow{
+	position: relative;
+    top: -90px;
+    right: 0px;
+    left: 40px;
+    bottom: 550px
+
+
+}
+
+h1 {
+	color: #663399;
+	text-decoration: underline; 
+	margin-bottom: 50px;
+}
+
+
+#red {
+	background-color: #F00; 
+	position: absolute;
+	left: 10px
+
+}
+
+#orange {
+	background-color: #FF6600;
+	position: absolute;
+	left: 130px
+}
+
+#yellow {
+	background-color: #FFFF00;
+	position: absolute;
+	left: 250px
+	
+}
+#green {
+	background-color: #0F0;
+	position: absolute;
+	left: 10px
+}
+#blue {
+	background-color: #00F;
+	position: absolute;
+	left: 130px
+}
+#violet {
+	background-color: #663399;
+	position: absolute;
+	left: 250px
+}
