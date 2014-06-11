@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<title>Exercise</title>
+	<script src="/js/jquery211.js"></script>
+</head>
+<body>
+<h1>jQuery Exercise</h1>
+
+<p id="P">
+paragraph
+</p>
+
+<ul id="UL">
+	<li> item 1</li>
+	<li> item 2</li>
+	<li> item 3</li>
+</ul>	
+
+<div class="DIV">
+DIV
+</div>
+
+
+
+<script type="text/javascript">
+
+var contents = $('#P').html('changed P');
+var contents = $('#UL>li').html('changed li');
+var contents = $('.DIV').html('changed DIV');
+
+</script>
+
+</html>
