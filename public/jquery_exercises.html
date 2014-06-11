@@ -7,17 +7,17 @@
 <body>
 <h1>jQuery Exercise</h1>
 
-<p id="P">
+<p class="codeup">
 paragraph
 </p>
 
-<ul id="UL">
+<ul class="codeup">
 	<li> item 1</li>
 	<li> item 2</li>
 	<li> item 3</li>
 </ul>	
 
-<div class="DIV">
+<div>
 DIV
 </div>
 
@@ -25,9 +25,9 @@ DIV
 
 <script type="text/javascript">
 
-var contents = $('#P').html('changed P');
-var contents = $('#UL>li').html('changed li');
-var contents = $('.DIV').html('changed DIV');
+$('.codeup').css('border', '1px red solid' );
+
+
 
 </script>
 
