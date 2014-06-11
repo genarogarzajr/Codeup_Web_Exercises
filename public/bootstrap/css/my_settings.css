@@ -1,0 +1,32 @@
+h1 {
+color: white;
+
+}
+
+h3 {
+
+	color: white;
+}
+
+
+
+.sidebar-nav li a {
+  color: #FFF;
+  
+}
+
+.map {
+
+	width: 100%;
+
+}
+
+.map iframe {
+margin: auto;
+}
+
+
+#test {
+
+	float: right;
+}

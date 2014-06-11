@@ -1,0 +1,39 @@
+<html>
+
+<head>
+	<title>JS Dates Exercise</title>
+	<script src="/js/moments.js"></script>
+</head>
+<body>
+<h2>JS Dates Exercise</h2>
+
+
+<script type="text/javascript">
+// todo:
+// Create an array of months for printing dates without Moment.js.
+var months = ['January', 'Feb', 'march', 'april', 'may', 'june', 'july', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+// todo:
+// Create the date corresponding to your birthday using the JavaScript Date object.
+var jsBirthday = new Date(1966,2,27);
+
+// todo:
+// Log your birthday in the format: January 1, 2014 using the JavaScript Date object.
+// See link below for methods needed:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#Getter
+console.log('Here is my birthday using vanilla js: ' + jsBirthday);
+
+// create the date corresponding to your birthday using Moment.js.
+var momentBirthday = moment(jsBirthday).format("MMM-DD-YYYY");
+
+
+// todo:
+// Log your birthday in the format: January 1, 2014 using Moment.js.
+console.log('Here is my birthday using Moment.js: ' + momentBirthday);
+
+
+
+
+</script>
+
+</html>
