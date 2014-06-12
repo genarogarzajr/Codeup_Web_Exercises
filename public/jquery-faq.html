@@ -52,8 +52,8 @@
 
 $('#change').click(function(event) {
         event.preventDefault();
-        $('dd').toggle();
-            });
+        $('dd').fadeToggle();
+});
 //------------------
 $('document').ready(function() {
     $('li').css('background-color', '#FF0');
@@ -68,7 +68,7 @@ $('ul').each( function(){
 //make all li disappear when clicked
 $('h3').click(function(event) {
 	
-	$(this).next().children().toggle();
+	$(this).next().children().fadeToggle();
 });
 
 </script>
