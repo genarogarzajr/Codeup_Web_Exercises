@@ -52,7 +52,7 @@
 
 $('#change').click(function(event) {
         event.preventDefault();
-        $('dd').toggleClass('invisible');
+        $('dd').toggle();
             });
 //------------------
 $('document').ready(function() {
@@ -66,9 +66,9 @@ $('ul').each( function(){
 })
 //-------------------
 //make all li disappear when clicked
-$('li').click(function(event) {
-	event.preventDefault();
-	$(this).parent().toggleClass('invisible');
+$('h3').click(function(event) {
+	
+	$(this).next().children().toggle();
 });
 
 </script>
