@@ -11,39 +11,65 @@
 	<script src="/js/jquery211.js"></script>
 </head>
 <body>
-<h2>Essential Methods Exercise</h2>
-
+<h1>Essential Methods Exercise</h1>
+<h2>San Antonio Spurs Roster</h2>
 <dl>
-  <dt>San antonio Spurs</dt>
-  <dd class="invisible">Tim Duncan</dd>
-  <dd class="invisible">Tony Parker</dd>
-  <dd class="invisible">Manu Ginobli</dd>
-  <dt>Dallas cowboys</dt>
-  <dd class="invisible">Tony Romo</dd>
-  <dd class="invisible">Jason witten</dd>
-  <dd class="invisible">Dez Bryant</dd>
-</dl>
+  <dt>Center</dt>
+	<dd>Tiago Splitter</dd>
+  	<dd>Matt Bonner</dd>
+ <dt>Forward</dt>
+	<dd>Tim Duncan</dd>
+	  <dd>Boris Diaw</dd>
+	  <dd>Danny Green</dd>
+	  <dd>Kawhi Leonard</dd>
+  <dt>Guard</dt>
+	  <dd>Tony Parker</dd>
+	  <dd>Manu Ginobli</dd>
+	  <dd>Patty Mills</dd>
+  </dl>
 
-<a href="#" id="change">Click to highlight important text.</a>
+<a href="#" id="change">Click to make visible.</a>
 
-
+<h1>Parks List</h1>
+<h3>National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
 
 <script type="text/javascript">
 
-
-
-
-
 $('#change').click(function(event) {
         event.preventDefault();
-        $('.invisible').toggleClass('invisible');
-        alert();
-    });
-
-
-
-
-
+        $('dd').toggleClass('invisible');
+            });
+//------------------
+$('document').ready(function() {
+    $('li').css('background-color', '#FF0');
+    $('li').parent().css('background-color', '#0F0');
+});
+//--------------------
+//make first li in EACH ul bold
+$('ul').each( function(){
+	$(this).children().first().css('font-weight', 'bold');
+})
+//-------------------
+//make all li disappear when clicked
+$('li').click(function(event) {
+	event.preventDefault();
+	$(this).parent().toggleClass('invisible');
+});
 
 </script>
 
