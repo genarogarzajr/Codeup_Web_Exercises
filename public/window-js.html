@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Delayed Autosave</title>
+    <script src="/js/jquery211.js"></script>
 </head>
 <body>
 
@@ -13,7 +14,7 @@
 
             var timeoutId = setTimeout(function () 
             {
-            autosave();
+                autosave();
             }, delay);
 
 
@@ -31,19 +32,29 @@
             // you need to cancel the existing timer and set a new one.
             clearTimeout(timeoutId);
             timeoutId = setTimeout(function(){
-                save();
-
+                save(); //calls the alert window
             }, 5000);
-
-
         }
 
         // don't modify the line below
         // this causes the autosave function to be called whenever
         // a key up event occurs in the textarea
         // we will learn about events in the DOM lessons
-        var textarea = document.getElementById('important');
-        textarea.addEventListener('keyup', autosave, false);
+                // var textarea = document.getElementById('important');
+                // textarea.addEventListener('keyup', autosave, false);
+
+
+$('#important').keyup(function() {
+    autosave;
+
+
+});
+
+
+
+
+
+
 
     </script>
 

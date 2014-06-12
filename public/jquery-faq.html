@@ -1,0 +1,50 @@
+<html>
+
+<head>
+	<title>Essential Methods Exercise</title>
+	<style>
+		.invisible {
+			display: none;
+		}
+       
+    </style>
+	<script src="/js/jquery211.js"></script>
+</head>
+<body>
+<h2>Essential Methods Exercise</h2>
+
+<dl>
+  <dt>San antonio Spurs</dt>
+  <dd class="invisible">Tim Duncan</dd>
+  <dd class="invisible">Tony Parker</dd>
+  <dd class="invisible">Manu Ginobli</dd>
+  <dt>Dallas cowboys</dt>
+  <dd class="invisible">Tony Romo</dd>
+  <dd class="invisible">Jason witten</dd>
+  <dd class="invisible">Dez Bryant</dd>
+</dl>
+
+<a href="#" id="change">Click to highlight important text.</a>
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+$('#change').click(function(event) {
+        event.preventDefault();
+        $('.invisible').toggleClass('invisible');
+        alert();
+    });
+
+
+
+
+
+
+</script>
+
+</html>

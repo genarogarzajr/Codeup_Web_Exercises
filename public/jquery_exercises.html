@@ -8,7 +8,7 @@
 <h1>jQuery Exercise</h1>
 
 <p class="codeup">
-paragraph
+paragraph one
 </p>
 
 <ul class="codeup">
@@ -17,16 +17,39 @@ paragraph
 	<li> item 3</li>
 </ul>	
 
+<p class="codeup">
+paragraph two
+</p>
+
+
 <div>
-DIV
+DIV contents
 </div>
 
 
 
 <script type="text/javascript">
+$('h1').click(function(){
+	$(this).css('background-color', '#F00');
+});
 
-$('.codeup').css('border', '1px red solid' );
+$('p').dblclick(function(){
+	$(this).css('font-size', '18px');
 
+});
+
+$('li').hover(
+        function() {
+            $(this).css('background-color', 'red');
+        },
+        function() {
+            $(this).css('background-color', 'white');
+        }
+    );
+
+
+            
+       
 
 
 </script>
