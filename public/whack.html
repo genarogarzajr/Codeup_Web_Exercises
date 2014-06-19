@@ -38,7 +38,7 @@
     </div>
         
     <div class="progress progress-striped active">
-        <div class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+        <div id="progress" class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
         <span class="sr-only">45% Complete</span>
         </div>
     </div>
@@ -52,6 +52,7 @@
 var counter = 0;//set this to what ever you want the start # to be
 var timer;
 var intervalId;
+var audio = new Audio('tesla.wav');
 
 //button starts game
     $('#start').click(function(){
@@ -59,9 +60,10 @@ var intervalId;
         // LOOP STARTS HERE
         intervalId = setInterval(function(){
             var cellToshow = getRandomInt(1,9);
-            $("#cell" + cellToshow).fadeIn().delay( 1000 ).fadeOut();
+            audio.play();
+            $("#cell" + cellToshow).fadeIn(200).delay( 500 ).fadeOut(200);
              
-        }, 3000);
+        }, 2000);
 
     });
 
@@ -77,32 +79,51 @@ function countUP () {
     $('#speed').html(counter); //refresh indicator    
     if (counter < 88) {
         timer = setTimeout ("countUP()", 350 ); //runs itsself 
+
+// ends game
+    if (score == 0) {
+                alert(" You Win !");
+                clearInterval(timer);
+                    } 
+
+
     } else {
         clearInterval(timer);
         clearInterval(intervalId);
+
+         if (score > 0) {
+                alert("You failed");
+
+        
+            };
+
     }
-    // console.log(counter);
+    
 }
 
 //---------------------------
 //adds score
 var score = 1210000000;
+percent = 0;
 $('.cell>img').click(function() {
+    
     $(this).hide();
     score = (score - 121000000);
     
+    percent += 10;
+
     $('#gw').html(score);
-    // $('.progress-bar').
+    var progress = $('#progress');
+    progress.css('width', percent + '%');
+    console.log(percent);
+    
 });
 
-// ends game
-//     if (counter >= 88 && score < 1210000000) {
-//         alert("You failed");
 
-//         else if (counter <= 88 && score >= 1210000000) {
-//     alert(" You Win !")
-//         } 
-//     };
+    // console.log(progress);
+
+
+   
 
 
 

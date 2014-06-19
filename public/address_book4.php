@@ -32,10 +32,6 @@ if (!empty($_POST))
 		$newAddress['zip'] = $_POST['zip'];
 		$newAddress['phone'] = $_POST['phone'];
 
-
-
-
-
 		if (empty($_POST['phone'])) {
 			$newAddress['phone'] = '';
 		} else {
