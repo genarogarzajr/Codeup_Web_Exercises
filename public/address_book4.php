@@ -7,19 +7,37 @@ require_once("classes/address_data_store.php");
 
 $ads = new AddressDataStore("data/adr_bk.csv");
 
-$addressBook = $ads->readAddressBook();
+$addressBook = $ads->read();
 
 if (isset($_GET['action']) && $_GET['action'] == 'remove')
- 	{
-	
+{
 	unset($addressBook[$_GET['index']]);
 	$addressBook = array_values($addressBook);
 	$ads->writeAddressBook($addressBook);
-	}
+}
 
 
-if (!empty($_POST))
-{
+// check if greater than X char or empty  
+try {
+	foreach ($_POST as $key => $value) 
+	{
+		if (strlen($value) > 5)
+		{
+			throw new Exception("$key cannot be greater than 125 characters, bro.");
+		}
+			if (empty($value)) 
+		{
+			throw new Exception("$key cannot be empty");
+		} 
+	} 
+} catch (Exception $e) {
+		echo $e->getMessage();
+}
+
+	 
+
+
+
 	// we must be trying to add a new address
 	if (!empty($_POST['name']) && !empty($_POST['address'])) // todo finish the validation
 	{
@@ -44,14 +62,13 @@ if (!empty($_POST))
 		$addressBook[] = $newAddress;
 
 		// save the address book
-		$ads->writeAddressBook($addressBook);
+		$ads->write($addressBook);
 	}
 	else
 	{
 		// validation failed
 		$errorMessage = "Validation failed. Please complete all fields.";
 	}
-}
 
 // Verify there were uploaded files and no errors
 if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
