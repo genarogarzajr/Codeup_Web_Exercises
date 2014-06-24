@@ -18,7 +18,15 @@ function getOffset() {
     return ($page - 1) * 4;
 }
 
-if ($_POST) {	
+if ($_POST) 
+	{	
+
+	if (empty($_POST['name']) || empty($_POST['location'])  || empty($_POST['date_established']) || empty($_POST['area']) || empty($_POST['description'])) 
+			{
+				echo '<script type="text/javascript">alert("all fields must be filled in"); </script>';
+			} else 
+				{
+					// posts to database
 	//establishes database connection
 	$dbc = new PDO('mysql:host=127.0.0.1;dbname=codeup_pdo_test_db', 'genaro', 'letmein');
 	// exceptions if errors
@@ -34,18 +42,13 @@ if ($_POST) {
 
     $stmt->execute();
 
-
-}
-
+				}
 
 
 
+	
 
-
-
-
-
-
+	} 
 
 
 

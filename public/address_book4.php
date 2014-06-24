@@ -65,10 +65,10 @@ try {
 		$ads->write($addressBook);
 	}
 	else
-	{
-		// validation failed
-		$errorMessage = "Validation failed. Please complete all fields.";
-	}
+		{
+			// validation failed
+			$errorMessage = "Validation failed. Please complete all fields.";
+		}
 
 // Verify there were uploaded files and no errors
 if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
