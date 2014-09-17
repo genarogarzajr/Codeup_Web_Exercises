@@ -1,0 +1,136 @@
+<html>
+
+<head>
+	<title>Back to the Future</title>
+	<link rel="stylesheet" href="whack.css">
+	<script src="jquery211.js"></script>
+    <link href="bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="table">
+    <div class="row">
+        <div class="cell"><img id="cell1" src="img/bolt.gif"></div>
+        <div class="cell"><img id="cell2" src="img/bolt.gif"></div>
+        <div class="cell"><img id="cell3" src="img/bolt.gif"></div>
+    </div>
+    <div class="row">
+        <div class="cell"><img id="cell4" src="img/bolt.gif"></div>
+        <div class="cell"><img id="cell5" src="img/bolt.gif"></div>
+        <div class="cell"><img id="cell6" src="img/bolt.gif"></div>
+    </div>
+    <div class="row">
+        <div class="cell"><img id="cell7" src="img/bolt.gif"></div>
+        <div class="cell"><img id="cell8" src="img/bolt.gif"></div>
+        <div class="cell"><img id="cell9" src="img/bolt.gif"></div>
+    </div>
+</div>
+
+<div>
+    <div id='speed-box'>
+        <div id="speed">0</div>
+        <div id='speedText'>SPEED</div>
+    </div>
+
+    <div id='gw-box'>
+        <div id='gw'>1210000000</div>
+        <div id='gwText'>GigaWatts Needed</div>
+    </div>
+        
+    <div class="progress progress-striped active">
+        <div id="progress" class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+        <span class="sr-only">45% Complete</span>
+        </div>
+    </div>
+</div>
+
+<div><button id='start'>Start game</button></div>
+
+<script type="text/javascript">
+//GAME STARTS HERE
+//starts counter
+var counter = 0;//set this to what ever you want the start # to be
+var timer;
+var intervalId;
+var audio = new Audio('tesla.wav');
+
+//button starts game
+    $('#start').click(function(){
+        countUP ();//call the function once
+        // LOOP STARTS HERE
+        intervalId = setInterval(function(){
+            var cellToshow = getRandomInt(1,9);
+            audio.play();
+            $("#cell" + cellToshow).fadeIn(200).delay( 500 ).fadeOut(200);
+             
+        }, 2000);
+
+    });
+
+// Returns a random integer between min and max
+// Using Math.round() will give you a non-uniform distribution!
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+   
+function countUP () {
+    counter++;//increment the counter by 1   
+    $('#speed').html(counter); //refresh indicator    
+    if (counter < 88) {
+        timer = setTimeout ("countUP()", 350 ); //runs itsself 
+
+// ends game
+    if (score == 0) {
+                alert(" You Win !");
+                clearInterval(timer);
+                    } 
+
+
+    } else {
+        clearInterval(timer);
+        clearInterval(intervalId);
+
+         if (score > 0) {
+                alert("You failed");
+
+        
+            };
+
+    }
+    
+}
+
+//---------------------------
+//adds score
+var score = 1210000000;
+percent = 0;
+$('.cell>img').click(function() {
+    
+    $(this).hide();
+    score = (score - 121000000);
+    
+    percent += 10;
+
+    $('#gw').html(score);
+    var progress = $('#progress');
+    progress.css('width', percent + '%');
+    console.log(percent);
+    
+});
+
+
+    // console.log(progress);
+
+
+   
+
+
+
+
+
+
+
+</script>
+
+</html>

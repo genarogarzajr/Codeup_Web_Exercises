@@ -1,0 +1,26 @@
+---
+- name: Server initialization
+
+  vars:
+    www_home: /vagrant/sites
+    php_error_reporting: "E_ALL"
+    php_error_display: "On"
+    laravel_env: local
+
+  hosts: default
+  user: vagrant
+  sudo: true
+
+  tasks:
+  - include: tasks/timezone.yml
+  - include: tasks/sysctl.yml
+  - include: tasks/system_updates.yml
+  - include: tasks/system_utilities.yml
+  - include: tasks/mysql.yml
+  - include: tasks/nginx.yml
+  - include: tasks/php.yml
+  - include: tasks/php_composer.yml
+  - include: tasks/bash_profile.yml
+
+  handlers:
+  - include: handlers.yml

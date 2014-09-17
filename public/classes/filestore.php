@@ -24,9 +24,9 @@ class Filestore {
                     return $this->read_csv();
                 }
                 else 
-                {
-                    return $this->read_lines();
-                }
+                    {
+                        return $this->read_lines();
+                    }
         }
 //---------------------------
         public function write($array) 
@@ -56,7 +56,7 @@ class Filestore {
         $contents = implode("", $list_array);
         return $contents;   
     }
-
+//--------------------------------
     //Writes each element in $array to a new line in $this->filename
     private function write_lines($array)
     {
@@ -64,7 +64,7 @@ class Filestore {
         fwrite($handle, $contents);
         fclose($handle);
     }
-
+//-----------------------------------
     //Reads contents of csv $this->filename, returns an array
     private function read_csv()
     {
@@ -83,7 +83,7 @@ class Filestore {
         fclose($handle);
         return $addresses;
     }
-
+//----------------------------------------
     //Writes contents of $array to csv $this->filename
     private function write_csv($array)
     {

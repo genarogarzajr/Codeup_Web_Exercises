@@ -26,7 +26,7 @@ if ($_POST)
 				echo '<script type="text/javascript">alert("all fields must be filled in"); </script>';
 			} else 
 				{
-					// posts to database
+	// posts to database
 	//establishes database connection
 	$dbc = new PDO('mysql:host=127.0.0.1;dbname=codeup_pdo_test_db', 'genaro', 'letmein');
 	// exceptions if errors
@@ -114,7 +114,7 @@ $prevPage = $page - 1;
             <?php endforeach ?>
 
 
-            <?php print_r($_POST); ?>
+            
 				
 			</table>
 		</p>
@@ -155,7 +155,8 @@ $prevPage = $page - 1;
 				<input type="text" name="area" id="area">
 				<br>
 				<label for="description">description</label>
-				<input type="text" name="description" id="description">
+				<!-- <input type="text" name="description" id="description"> -->
+				<textarea name="description" id="description"></textarea>
 				<br>
 				<input type="submit">
 
